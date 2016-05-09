@@ -5,16 +5,22 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
-import FuelSavingsForm from '../components/FuelSavingsForm';
+//import FuelSavingsForm from '../components/FuelSavingsForm';
+import EventThumbnail from '../components/EventThumbnail';
 
 export const EventApprovalPage = (props) => {
   return (
-    //TODO: create event components 
-    <FuelSavingsForm
-      saveFuelSavings={props.actions.saveFuelSavings}
-      calculateFuelSavings={props.actions.calculateFuelSavings}
+
+    <EventThumbnail
       appState={props.appState}
     />
+
+    //TODO: create event components
+    // <FuelSavingsForm
+    //   saveFuelSavings={props.actions.saveFuelSavings}
+    //   calculateFuelSavings={props.actions.calculateFuelSavings}
+    //   appState={props.appState}
+    // />
   );
 };
 

@@ -1,0 +1,14 @@
+/* Variables */
+//$vin-blue: #5bb7db;
+//$vin-green: #60b044;
+//$vin-red: #ff0000;
+
+$defaultThumbnailSize: 150px;
+$defaultThumbnailBackground: grey;
+
+div.event-thumbnail {
+  width: $defaultThumbnailSize;
+  height: $defaultThumbnailSize;
+  background-color: $defaultThumbnailBackground;
+}
+

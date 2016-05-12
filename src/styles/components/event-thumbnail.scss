@@ -4,11 +4,17 @@
 //$vin-red: #ff0000;
 
 $defaultThumbnailSize: 150px;
-$defaultThumbnailBackground: grey;
+$defaultThumbnailBackground: ghostwhite;
+$gutter: 5px;
 
 div.event-thumbnail {
   width: $defaultThumbnailSize;
   height: $defaultThumbnailSize;
   background-color: $defaultThumbnailBackground;
+  margin: $gutter;
+  float:left;
+}
+div.event-hover {
+  display:none;
 }
 

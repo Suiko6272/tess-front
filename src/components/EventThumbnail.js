@@ -17,6 +17,8 @@ class EventThumbnail extends React.Component {
 
   }
 
+
+
   //onTimeframeChange(e) {}
 
   approve() {
@@ -26,23 +28,24 @@ class EventThumbnail extends React.Component {
 
   }
   modal_details(){
-
+    console.log("hi -------");
   }
-
 
   render() {
     const {appState} = this.props;
+    var event = this.props.event;
 
     return (
       <div className="event-thumbnail">
-        <h2>Event Name</h2>
+        <h2>{event.title}</h2>
+
         <div className="btns">
           <input type="submit" value="Details" onClick={this.modal_details()}/>
           <input type="submit" value="Approve" onClick={this.approve()}/>
           <input type="submit" value="TRASH" onClick={this.trash()}/>
         </div>
         <div className="event-hover">
-          <p>Thumbnail Details</p>
+          <p>{event.description}</p>
         </div>
       </div>
     );
@@ -51,6 +54,10 @@ class EventThumbnail extends React.Component {
 }
 
 
+EventThumbnail.propTypes = {
+  appState: PropTypes.object.isRequired,
+  event: PropTypes.object.isRequired
+};
 export default EventThumbnail;
 
 // class FuelSavingsForm extends React.Component {

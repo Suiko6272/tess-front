@@ -1,0 +1,19 @@
+/* Variables */
+//$vin-blue: #5bb7db;
+//$vin-green: #60b044;
+//$vin-red: #ff0000;
+
+$defaultContainerSize: 350px;
+$defaultContainerBackground: grey;
+
+div.container {
+
+}
+
+div.events-container {
+  width: $defaultContainerSize;
+  height: $defaultContainerSize;
+  background-color: $defaultContainerBackground;
+}
+
+

@@ -6,16 +6,39 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/fuelSavingsActions';
 //import FuelSavingsForm from '../components/FuelSavingsForm';
-import EventThumbnail from '../components/EventThumbnail';
+//import EventThumbnail from '../components/EventThumbnail';
+import EventContainer from '../components/EventContainer';
+//import EVENTS from '../data/Events';
+
+
 
 export const EventApprovalPage = (props) => {
+  // var EVENTS = [
+  //   {name: "e1", details: "My Details"},
+  //   {name: "e2", details: "Other Details"},
+  //   {name: "e3", details: "Final Details"}
+  // ];
+  var EVENTS = [
+    {
+      "description": "where the fuzzy people at!?",
+      "f_approved": false,
+      "f_scheduled": false,
+      "id": 1,
+      "title": "Fuzzy"
+    },
+    {
+      "description": "pale people that have never seen the light of day.",
+      "f_approved": false,
+      "f_scheduled": false,
+      "id": 2,
+      "title": "Gamer people"
+    }
+  ]
   return (
-
-    <EventThumbnail
+    <EventContainer
       appState={props.appState}
-    />
-
-    //TODO: create event components
+      events={EVENTS}
+      />
     // <FuelSavingsForm
     //   saveFuelSavings={props.actions.saveFuelSavings}
     //   calculateFuelSavings={props.actions.calculateFuelSavings}

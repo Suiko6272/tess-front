@@ -9,9 +9,8 @@ import EventApprovalPage from './containers/EventApprovalPage';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={FuelSavingsPage} />
+    <IndexRoute component={EventApprovalPage} />
     <Route path="about" component={AboutPage}/>
-    <Route path="approval" component={EventApprovalPage} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 );

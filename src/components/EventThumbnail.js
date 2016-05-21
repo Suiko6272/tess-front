@@ -10,7 +10,7 @@ class EventThumbnail extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.approve = this.approve.bind(this);
+    this.change_approval = this.change_approval.bind(this);
     this.trash = this.trash.bind(this);
     this.modal_details = this.modal_details.bind(this);
     //this.onTimeframeChange = this.onTimeframeChange.bind(this);
@@ -21,27 +21,36 @@ class EventThumbnail extends React.Component {
 
   //onTimeframeChange(e) {}
 
-  approve() {
-
+  change_approval(event) {
+    /*if(event.f_approved){
+      if(event.f_scheduled !== true){
+        event.f_approved = false;
+      }
+    }
+    else{
+      event.f_approved = true;
+    }*/
   }
   trash() {
 
   }
   modal_details(){
-    console.log("hi -------");
+    //console.log("hi -------");
   }
 
   render() {
     const {appState} = this.props;
     var event = this.props.event;
 
+    //TODO: an IF statement to register if Scheduled, this will add an icon & change buttons
+    //TODO: an IF statement to change buttons if approved
     return (
       <div className="event-thumbnail">
         <h2>{event.title}</h2>
 
         <div className="btns">
           <input type="submit" value="Details" onClick={this.modal_details()}/>
-          <input type="submit" value="Approve" onClick={this.approve()}/>
+          <input type="submit" value="Approve" onClick={this.change_approval(event)}/>
           <input type="submit" value="TRASH" onClick={this.trash()}/>
         </div>
         <div className="event-hover">
@@ -56,31 +65,8 @@ class EventThumbnail extends React.Component {
 
 EventThumbnail.propTypes = {
   appState: PropTypes.object.isRequired,
-  event: PropTypes.object.isRequired
+  event: PropTypes.object.isRequired,
+  change_approval: PropTypes.func.isRequired,
+  trashEvent: PropTypes.func.isRequired,
 };
 export default EventThumbnail;
-
-// class FuelSavingsForm extends React.Component {
-//   constructor(props, context) {
-//     super(props, context);
-//
-//     this.save = this.save.bind(this);
-//     this.onTimeframeChange = this.onTimeframeChange.bind(this);
-//     this.fuelSavingsKeypress = this.fuelSavingsKeypress.bind(this);
-//   }
-//
-//   onTimeframeChange(e) {
-//     this.props.calculateFuelSavings(this.props.appState, 'milesDrivenTimeframe', e.target.value);
-//   }
-//
-//   fuelSavingsKeypress(name, value) {
-//     this.props.calculateFuelSavings(this.props.appState, name, value);
-//   }
-//
-//   save() {
-//     this.props.saveFuelSavings(this.props.appState);
-//   }
-//
-//   render() {
-//     const {appState} = this.props;
-//

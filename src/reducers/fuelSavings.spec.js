@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as ActionTypes from '../constants/actionTypes';
 import reducer from './fuelSavings';
-import dateHelper from '../businessLogic/dateHelper';
+import dateHelper from '../businessLogic/old_fuel_logic/dateHelper';
 
 describe('Reducers::FuelSavings', () => {
 

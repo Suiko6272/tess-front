@@ -12,8 +12,8 @@ class EventContainer extends React.Component {
     super(props, context);
 
     //this.onTimeframeChange = this.onTimeframeChange.bind(this);
-
   }
+
 
   //onTimeframeChange(e) {}var
 
@@ -22,16 +22,37 @@ class EventContainer extends React.Component {
 //TODO: Get JSON data from API
   render() {
     const {appState} = this.props;
+    var approvedContainer = this.props.approvedContainer;
+    var containerName = this.props.containerName;
     var objects = [];
     //var events = this.props.events;
     var events = this.props.events;
     //TODO: Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of `EventContainer`. See https://fb.me/react-warning-keys for more information
 
+    var event;
+
 
     for(var i = 0; i < events.length ; i++){
       //var event = events[i];
-      var event = events[i];
-      objects.push(<EventThumbnail appState={appState} event={event} />);
+      event = events[i];
+      var shouldShow = false;
+      //event.f_approved ? <PostFormDialog ... /> : false
+      console.log("hi.... approvedContainer = " + approvedContainer + " & f_approved = " + event.f_approved);
+
+
+      //TODO: WHY THE FUCK ISN'T THIS HITTING CORRECTLY
+      if(approvedContainer == 'True'){
+        console.log("Approved");
+       if(event.f_approved) { shouldShow = true; }
+       else {shouldShow = false;}
+      }
+      else{
+        console.log("Request");
+        if(event.f_approved) { shouldShow = false; }
+        else {shouldShow = true;}
+      }
+      objects.push(shouldShow ? <EventThumbnail appState={appState} event={event} /> : false);
+      //objects.push(<EventThumbnail appState={appState} event={event} />);
     }
     // this.props.events.forEach(function(o) {
     //   objects.push(<EventThumbnail event={o} appState={this.props.appState} />);
@@ -40,12 +61,10 @@ class EventContainer extends React.Component {
 
     return (
       <div className="container">
-        <h2>Container Name</h2>
+        <h2>{containerName}</h2>
         <div className="events-container">
           {objects}
         </div>
-
-        <button>View Trash</button>
       </div>
     );
   }

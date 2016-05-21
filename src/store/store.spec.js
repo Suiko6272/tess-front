@@ -2,8 +2,8 @@ import * as ActionTypes from '../constants/actionTypes';
 import { createStore } from 'redux';
 import { expect } from 'chai';
 import rootReducer from '../reducers';
-import calculator from '../businessLogic/fuelSavingsCalculator';
-import dateHelper from '../businessLogic/dateHelper';
+import calculator from '../businessLogic/old_fuel_logic/fuelSavingsCalculator';
+import dateHelper from '../businessLogic/old_fuel_logic/dateHelper';
 import initialState from '../reducers/initialState';
 
 describe('Store', () => {

@@ -1,6 +1,6 @@
 import {SAVE_FUEL_SAVINGS, CALCULATE_FUEL_SAVINGS} from '../constants/actionTypes';
-import calculator from '../businessLogic/fuelSavingsCalculator';
-import dateHelper from '../businessLogic/dateHelper';
+import calculator from '../businessLogic/old_fuel_logic/fuelSavingsCalculator';
+import dateHelper from '../businessLogic/old_fuel_logic/dateHelper';
 import objectAssign from 'object-assign';
 import initialState from './initialState';
 

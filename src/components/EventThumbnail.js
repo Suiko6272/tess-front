@@ -3,6 +3,9 @@
  */
 
 import React, {PropTypes} from 'react';
+import { connect } from 'react-redux';
+//import * as actions from '../eventApprovalActions';
+import eventLogic from '../businessLogic/eventLogic';
 //import FuelSavingsResults from './FuelSavingsResults';
 //import FuelSavingsTextInput from './FuelSavingsTextInput';
 
@@ -10,7 +13,7 @@ class EventThumbnail extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.change_approval = this.change_approval.bind(this);
+    this.changeApproval = this.changeApproval.bind(this);
     this.trash = this.trash.bind(this);
     this.modal_details = this.modal_details.bind(this);
     //this.onTimeframeChange = this.onTimeframeChange.bind(this);
@@ -21,15 +24,22 @@ class EventThumbnail extends React.Component {
 
   //onTimeframeChange(e) {}
 
-  change_approval(event) {
-    /*if(event.f_approved){
-      if(event.f_scheduled !== true){
-        event.f_approved = false;
-      }
-    }
-    else{
-      event.f_approved = true;
-    }*/
+  changeApproval(eventRef) {
+    this.props.changeEventApproval(this.props.appState, eventRef);
+    //changeEventApproval(this.props.appState, eventRef);
+    //this.props.changeEventApproval(this.props.appState, eventRef);
+    //TODO: dispatch an action to the page's Store to change event approval
+    //this.props.changeEventApproval(this.props.appState, eventRef);
+    //this.props.actions.changeEventApproval(this.props.appState, eventRef);
+    // if(eventRef == null){
+    //   return;
+    // }
+    //const ELogic = eventLogic();
+    //eventRef.f_approved = ELogic.chanageApproval(eventRef);
+
+
+    //dispatch(actions.changeEventApproval(currentAppState, eventRef));
+    //this.props.changeEventApproval(currentAppState, eventRef);
   }
   trash() {
 
@@ -50,7 +60,7 @@ class EventThumbnail extends React.Component {
 
         <div className="btns">
           <input type="submit" value="Details" onClick={this.modal_details()}/>
-          <input type="submit" value="Approve" onClick={this.change_approval(event)}/>
+          <input type="submit" value="Approve" onClick={this.changeApproval(event)}/>
           <input type="submit" value="TRASH" onClick={this.trash()}/>
         </div>
         <div className="event-hover">
@@ -63,10 +73,11 @@ class EventThumbnail extends React.Component {
 }
 
 
+//changeEventApproval: PropTypes.func.isRequired,
+//trashEvent: PropTypes.func.isRequired,
 EventThumbnail.propTypes = {
   appState: PropTypes.object.isRequired,
   event: PropTypes.object.isRequired,
-  change_approval: PropTypes.func.isRequired,
-  trashEvent: PropTypes.func.isRequired,
+  changeEventApproval: PropTypes.func.isRequired
 };
 export default EventThumbnail;

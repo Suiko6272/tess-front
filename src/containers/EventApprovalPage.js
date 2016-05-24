@@ -11,10 +11,11 @@ import EventContainer from '../components/EventContainer';
 
 
 export const EventApprovalPage = (props) => {
-  var EVENTS = [
+  let EVENTS = [
     {
       "description": "where the fuzzy people at!?",
       "f_approved": true,
+
       "f_scheduled": false,
       "id": 1,
       "title": "Fuzzy"
@@ -56,6 +57,7 @@ export const EventApprovalPage = (props) => {
         containerName = "Panel Submissions"
         events={EVENTS}
         approvedContainer="False"
+        changeEventApproval={props.actions.changeEventApproval}
       />
       <EventContainer
         appState={props.appState}
@@ -79,7 +81,7 @@ EventApprovalPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    appState: state.fuelSavingsAppState
+    appState: state.eventApprovalsReducer
   };
 }
 

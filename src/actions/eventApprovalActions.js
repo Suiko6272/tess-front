@@ -7,14 +7,10 @@ export function saveEventApprovals(settings) {
   return { type: types.SAVE_EVENT_APPROVALS, settings };
 }
 
-export function approveEvent(settings, eventRef) {
-  return { type: types.APPROVE_EVENT, settings, eventRef};
+export function changeEventApproval(appState, eventRef) {
+  return { type: types.CHANGE_APPROVAL_EVENT, appState, eventRef};
 }
 
 export function trashEvent(settings, eventRef) {
   return { type: types.TRASH_EVENT, settings, eventRef};
-}
-
-export function unapproveEvent(settings, eventRef) {
-  return { type: types.UN_APPROVE_EVENT, settings, eventRef};
 }

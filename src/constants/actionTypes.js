@@ -3,14 +3,13 @@
 
 
 // Event Approval Page
-export const SAVE_EVENT_APPROVALS = 'SAVE_EVENT_APPROVALS';
-export const APPROVE_EVENT = 'APPROVE_EVENT';
+export const SAVE_EVENT_APPROVALS = 'SAVE_EVENT_APPROVALS'; //TODO: Phase out and save on Change_Approval_Event
+export const CHANGE_APPROVAL_EVENT = 'CHANGE_APPROVAL_EVENT';
 export const TRASH_EVENT = 'TRASH_EVENT';
-export const UN_APPROVE_EVENT = 'UN_APPROVE_EVENT';
 
 
 // Event Schedule Page
-
+export const CHANGE_SCHEDULE_EVENT = 'CHANGE_APPROVAL_EVENT';
 
 // Event Form Input Page
 

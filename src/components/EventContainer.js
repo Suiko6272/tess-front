@@ -51,7 +51,8 @@ class EventContainer extends React.Component {
         if(event.f_approved) { shouldShow = false; }
         else {shouldShow = true;}
       }
-      objects.push(shouldShow ? <EventThumbnail appState={appState} event={event} /> : false);
+      //TODO: changeEventApproval={this.props.actions.changeEventApproval}
+      objects.push(shouldShow ? <EventThumbnail appState={appState} event={event} changeEventApproval={this.props.changeEventApproval}  /> : false);
       //objects.push(<EventThumbnail appState={appState} event={event} />);
     }
     // this.props.events.forEach(function(o) {
@@ -72,7 +73,8 @@ class EventContainer extends React.Component {
 }
 
 EventContainer.propTypes = {
-  appState: PropTypes.object.isRequired
+  appState: PropTypes.object.isRequired,
+  changeEventApproval: PropTypes.func.isRequired
 };
 
 export default EventContainer;

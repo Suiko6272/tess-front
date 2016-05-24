@@ -13,8 +13,9 @@ class FuelSavingsForm extends React.Component {
 
   onTimeframeChange(e) {
     this.props.calculateFuelSavings(this.props.appState, 'milesDrivenTimeframe', e.target.value);
+        
   }
-
+  
   fuelSavingsKeypress(name, value) {
     this.props.calculateFuelSavings(this.props.appState, name, value);
   }

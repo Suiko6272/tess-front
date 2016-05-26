@@ -11,6 +11,8 @@ import EventContainer from '../components/EventContainer';
 
 
 export const EventApprovalPage = (props) => {
+
+  //TODO: Events currently can not be updated as the state is always refreshed here, instead of from the store, need google to actually figure it out q--q
   let EVENTS = [
     {
       "description": "where the fuzzy people at!?",
@@ -47,9 +49,20 @@ export const EventApprovalPage = (props) => {
       "f_scheduled": true,
       "id": 4,
       "title": "Scheduled Event"
-    },
-  ]
+    }
+  ];
 
+  /*
+   <EventContainer
+   appState={props.appState}
+   containerName="Approved Panels"
+   events={EVENTS}
+   approvedContainer="True"
+
+   />
+   */
+
+  //TODO: Put ChangeEventApproval into the other EventContainer as well
   return (
     <div>
       <EventContainer
@@ -59,12 +72,7 @@ export const EventApprovalPage = (props) => {
         approvedContainer="False"
         changeEventApproval={props.actions.changeEventApproval}
       />
-      <EventContainer
-        appState={props.appState}
-        containerName="Approved Panels"
-        events={EVENTS}
-        approvedContainer="True"
-      />
+
     </div>
     // <FuelSavingsForm
     //   saveFuelSavings={props.actions.saveFuelSavings}

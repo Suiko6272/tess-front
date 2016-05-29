@@ -10,6 +10,9 @@ import eventLogic from '../businessLogic/eventLogic';
 //import FuelSavingsTextInput from './FuelSavingsTextInput';
 
 class EventThumbnail extends React.Component {
+
+
+
   constructor(props, context) {
     super(props, context);
 
@@ -24,17 +27,16 @@ class EventThumbnail extends React.Component {
 
   //onTimeframeChange(e) {}
 
-  changeApproval(eventRef) {
-    this.props.changeEventApproval(this.props.appState, eventRef);
-    //changeEventApproval(this.props.appState, eventRef);
-    //this.props.changeEventApproval(this.props.appState, eventRef);
-    //TODO: dispatch an action to the page's Store to change event approval
-    //this.props.changeEventApproval(this.props.appState, eventRef);
-    //this.props.actions.changeEventApproval(this.props.appState, eventRef);
-    // if(eventRef == null){
-    //   return;
-    // }
-    //const ELogic = eventLogic();
+  changeApproval() {
+  //  if(f_mounting) {
+   //   console.log("raesdftyftftftftyftftf");
+   //   f_mounting = false;
+   //   return;
+   // }
+    //console.log("approve");
+    //this.props.event.f_approved = true;
+    this.props.changeEventApproval(this.props.appState, this.props.event);
+
     //eventRef.f_approved = ELogic.chanageApproval(eventRef);
 
 
@@ -50,7 +52,7 @@ class EventThumbnail extends React.Component {
 
   render() {
     const {appState} = this.props;
-    var event = this.props.event;
+    let event = this.props.event;
 
     //TODO: an IF statement to register if Scheduled, this will add an icon & change buttons
     //TODO: an IF statement to change buttons if approved
@@ -60,7 +62,7 @@ class EventThumbnail extends React.Component {
 
         <div className="btns">
           <input type="submit" value="Details" onClick={this.modal_details()}/>
-          <input type="submit" value="Approve" onClick={this.changeApproval(event)}/>
+          <input type="submit" value="Approve" onClick={this.changeApproval}/>
           <input type="submit" value="TRASH" onClick={this.trash()}/>
         </div>
         <div className="event-hover">

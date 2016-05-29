@@ -20,24 +20,19 @@ export default function eventApprovalsReducer(state = initialStateEvents, action
 
     case CHANGE_APPROVAL_EVENT:
     {
-      // limit scope with this code block, to satisfy eslint no-case-declarations rule.
       let newState = objectAssign({}, state);
-      //newState[action.fieldName] = action.value;
 
       console.log("FINALLY I HIT THIS SPOT");
-      const ELogic = eventLogic();
-      //newState.event = ELogic.changeApproval(newState);
+      //const ELogic = eventLogic(); //TODO: Actually implement it with seperated logic
+      console.log(action);
+      console.log(newState);
 
-      // const calc = calculator();
-      // newState.necessaryDataIsProvidedToCalculateSavings = calc.necessaryDataIsProvidedToCalculateSavings(newState);
-      // newState.dateModified = dateHelper.getFormattedDateTime(new Date());
-      //
-      // if (newState.necessaryDataIsProvidedToCalculateSavings) {
-      //   newState.savings = calc.calculateSavings(newState);
-      // }
-
-
-
+      for( var i = 0; i < 5 ; i++){
+        if(newState.events[i].id == action.eventRef.id){
+          newState.events[i].f_approved = !(newState.events[i].f_approved);
+          break;
+        }
+      }
       return newState;
     }
     case TRASH_EVENT:

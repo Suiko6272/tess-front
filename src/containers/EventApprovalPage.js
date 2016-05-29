@@ -12,45 +12,45 @@ import EventContainer from '../components/EventContainer';
 
 export const EventApprovalPage = (props) => {
 
-  //TODO: Events currently can not be updated as the state is always refreshed here, instead of from the store, need google to actually figure it out q--q
-  let EVENTS = [
-    {
-      "description": "where the fuzzy people at!?",
-      "f_approved": true,
-
-      "f_scheduled": false,
-      "id": 1,
-      "title": "Fuzzy"
-    },
-    {
-      "description": "pale people that have never seen the light of day.",
-      "f_approved": false,
-      "f_scheduled": false,
-      "id": 2,
-      "title": "Gamer people"
-    },
-    {
-      "description": "zombie jesus saves the day.",
-      "f_approved": false,
-      "f_scheduled": false,
-      "id": 5,
-      "title": "Zombie Jesus"
-    },
-    {
-      "description": "Find out on the next episode if Nick remembers that it's furry not fuzzy.",
-      "f_approved": true,
-      "f_scheduled": false,
-      "id": 3,
-      "title": "Approved Event"
-    },
-    {
-      "description": "pale people that have never seen the light of day.",
-      "f_approved": true,
-      "f_scheduled": true,
-      "id": 4,
-      "title": "Scheduled Event"
-    }
-  ];
+  // //TODO: Events currently can not be updated as the state is always refreshed here, instead of from the store, need google to actually figure it out q--q
+  // let EVENTS = [
+  //   {
+  //     "description": "where the fuzzy people at!?",
+  //     "f_approved": true,
+  //
+  //     "f_scheduled": false,
+  //     "id": 1,
+  //     "title": "Fuzzy"
+  //   },
+  //   {
+  //     "description": "pale people that have never seen the light of day.",
+  //     "f_approved": false,
+  //     "f_scheduled": false,
+  //     "id": 2,
+  //     "title": "Gamer people"
+  //   },
+  //   {
+  //     "description": "zombie jesus saves the day.",
+  //     "f_approved": false,
+  //     "f_scheduled": false,
+  //     "id": 5,
+  //     "title": "Zombie Jesus"
+  //   },
+  //   {
+  //     "description": "Find out on the next episode if Nick remembers that it's furry not fuzzy.",
+  //     "f_approved": true,
+  //     "f_scheduled": false,
+  //     "id": 3,
+  //     "title": "Approved Event"
+  //   },
+  //   {
+  //     "description": "pale people that have never seen the light of day.",
+  //     "f_approved": true,
+  //     "f_scheduled": true,
+  //     "id": 4,
+  //     "title": "Scheduled Event"
+  //   }
+  // ];
 
   /*
    <EventContainer
@@ -58,7 +58,7 @@ export const EventApprovalPage = (props) => {
    containerName="Approved Panels"
    events={EVENTS}
    approvedContainer="True"
-
+   changeEventApproval={props.actions.changeEventApproval}
    />
    */
 
@@ -68,11 +68,15 @@ export const EventApprovalPage = (props) => {
       <EventContainer
         appState={props.appState}
         containerName = "Panel Submissions"
-        events={EVENTS}
         approvedContainer="False"
         changeEventApproval={props.actions.changeEventApproval}
       />
-
+      <EventContainer
+        appState={props.appState}
+        containerName = "Approved Panels"
+        approvedContainer="True"
+        changeEventApproval={props.actions.changeEventApproval}
+      />
     </div>
     // <FuelSavingsForm
     //   saveFuelSavings={props.actions.saveFuelSavings}

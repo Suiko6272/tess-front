@@ -21,12 +21,14 @@ class EventContainer extends React.Component {
 
 //TODO: Get JSON data from API
   render() {
+    console.log(this.props);
     const {appState} = this.props;
     var approvedContainer = this.props.approvedContainer;
     var containerName = this.props.containerName;
     var objects = [];
     //var events = this.props.events;
-    var events = this.props.events;
+    var events = this.props.appState.events;
+    console.log(this.events);
     //TODO: Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of `EventContainer`. See https://fb.me/react-warning-keys for more information
 
     var event;
@@ -40,7 +42,6 @@ class EventContainer extends React.Component {
       console.log("hi.... approvedContainer = " + approvedContainer + " & f_approved = " + event.f_approved);
 
 
-      //TODO: WHY THE FUCK ISN'T THIS HITTING CORRECTLY
       if(approvedContainer == 'True'){
         console.log("Approved");
        if(event.f_approved) { shouldShow = true; }
@@ -51,7 +52,7 @@ class EventContainer extends React.Component {
         if(event.f_approved) { shouldShow = false; }
         else {shouldShow = true;}
       }
-      //TODO: changeEventApproval={this.props.actions.changeEventApproval}
+      //TODO: see if better way changeEventApproval={this.props.actions.changeEventApproval}
       objects.push(shouldShow ? <EventThumbnail appState={appState} event={event} changeEventApproval={this.props.changeEventApproval}  /> : false);
       //objects.push(<EventThumbnail appState={appState} event={event} />);
     }
